@@ -5,7 +5,6 @@
 * [Navbar](#navbar)
 * [Active State](#active)
 * [Link Scrolling](#scroll)
-*
 
 ## navbar
 unordered list items in the nav bar are added dynamically with JS. Adding more sections to the html will populate the navbar with corresponding sections.
