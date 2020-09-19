@@ -1,57 +1,52 @@
-/**
- * 
- * Manipulating the DOM exercise.
- * Exercise programmatically builds navigation,
- * scrolls to anchors from navigation,
- * and highlights section in viewport upon scrolling.
- * 
- * Dependencies: None
- * 
- * JS Version: ES2015/ES6
- * 
- * JS Standard: ESlint
- * 
-*/
+// Global variables
+const navbar = document.getElementById('navbar__list');
+const a = document.getElementsByTagName('a');
+const sections = document.getElementsByTagName('section');
 
-/**
- * Define Global Variables
- * 
-*/
+// function invocation
+addElementsToNav();
 
-
-/**
- * End Global Variables
- * Start Helper Functions
- * 
-*/
-
-
-
-/**
- * End Helper Functions
- * Begin Main Functions
- * 
-*/
 
 // build the nav
+  function addElementsToNav(){
+    for(let i = 1; i <= sections.length; i ++) {
+        const myLi = document.createElement('a');
+
+        myLi.textContent = sections[i-1].dataset.nav;
+
+            
+        /* href set to corresponding section Number
+        scroll behaviour set to smooth in css */
+        myLi.setAttribute('href', '#section' + i);
+        navbar.appendChild(myLi);
+        
+    }
+}
 
 
-// Add class 'active' to section when near top of viewport
+// add active class to section that is in viewport
+// setTimeout to throttle scroll event
+window.addEventListener('scroll', function(){
+    setTimeout(() => {
+
+        // first remove active class from all sections
+        for(let i = 1; i <= sections.length; i++){
+            sections[i-1].classList.remove('your-active-class');
+        }
+
+        // add active class to element that is in view
+        for(let i = 1; i <= sections.length; i++) {
+            const elementTop = sections[i-1].getBoundingClientRect().top
+                if(elementTop > -260 && elementTop < 530){
+                    sections[i-1].classList.add('your-active-class');
+            }
+        }
 
 
-// Scroll to anchor ID using scrollTO event
+    }, 2000)
+})
 
 
-/**
- * End Main Functions
- * Begin Events
- * 
-*/
 
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active
 
 
