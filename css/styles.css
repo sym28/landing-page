@@ -10,11 +10,6 @@
 
 
 /* ---- Base Rules ---- */
-
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     background: rgb(136,203,171);
     background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);
@@ -49,6 +44,13 @@ a {
     color: black;
     margin: 0em 0em 0em 2em;
     cursor: pointer;
+    text-decoration: none;
+}
+
+a.active-nav-link {
+    color: white;
+    background: linear-gradient(0deg, rgba(136,203,171,1) 0%, 
+    rgba(0,13,60,1) 100%);
     text-decoration: underline;
 }
 
@@ -75,6 +77,15 @@ section {
 /* ---- Module Rules ---- */
 
 /* Navigation Styles*/
+.navbar__menu {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.navbar__menu .icon {
+    margin: 0em 1em 0em 0em;
+    display: none;
+}
 .navbar__menu ul {
     padding-left: 0;
     margin: 0;
@@ -97,6 +108,10 @@ section {
     background: #333;
     color: #fff;
     transition: ease 0.3s all;
+}
+
+.fa-bars {
+    color: black;
 }
 
 /* Header Styles */
@@ -132,6 +147,24 @@ section {
         max-width: 50em;
         padding: 4em;
     }
+}
+
+@media only screen and (max-width: 600px) {
+    
+    .navbar__menu {
+        justify-content: flex-end;
+    }
+    .hide {
+        display: none;
+    }
+    .navbar__menu .icon {
+        display: block;
+    }
+    .responsive {
+        display: flex;
+        flex-direction: column;
+    }
+    
 }
 
 section:nth-of-type(even) .landing__container {
